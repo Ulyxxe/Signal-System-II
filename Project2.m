@@ -6,7 +6,7 @@ whos
 %% Plot of angular speed
 fig=1
 figure(fig)
-plot(omega,t)
+plot()
 grid on 
 xlabel("Time [sec]")
 ylabel("Angular speed [rad/sec]")
