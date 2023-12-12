@@ -4,9 +4,9 @@
  a4paper,
  total={210mm,297mm},
  left=25mm,
- right=25mm,
- bottom=25mm,
- top=25mm,
+ right=20mm,
+ bottom=20mm,
+ top=20mm,
  }
 \usepackage[english]{babel}
 \usepackage[T1]{fontenc}
@@ -23,6 +23,8 @@
 \usepackage{amsmath}
 \usepackage{multicol}
 \usepackage{enumitem}
+\usepackage{listings}
+\usepackage{matlab-prettifier}
 
 
 
@@ -73,27 +75,67 @@
 
 We first use \textit{load('data-proj.mat')} to load variables from data file. Then using \textit{whos} we can list all variables. We have their name and size.
 Here is the result : 
-\begin{center}
-  \includegraphics[scale=1]{images/q1.JPG}
-  \captionof{figure}{Listing variables}
-\end{center}
+
+
+\begin{lstlisting}[style=Matlab-editor,language=Matlab, caption= Loaded variables, captionpos=b]
+  >> whos
+Name       Size                Bytes  Class     
+
+omega      1x20001            160008  double              
+t          1x20001            160008  double 
+  
+\end{lstlisting}
+
 
 \item \emph{Plotting the data}
 
-We can not use the signal as it is. Graphically it is impossible to analyze. Either it is too noisy or the window is too large in order to see enough details of the signal.
+We can not use the signal as it is. Graphically it is impossible to analyze. Either it is too noisy or the window is too large in order to see enough details of the signal. This is a continous (analog) signal. Electronic control devices requires digital signals.
+\begin{multicols}{2}
 \begin{center}
-  \includegraphics[scale=0.5]{Figures/q2.jpg}
+  \includegraphics[scale=0.35]{Figures/q2.jpg}
   \captionof{figure}{Angular speed as a function of time}
+  \label{F2}
 \end{center}
+\columnbreak
 
+\begin{lstlisting}[style=Matlab-editor,language=Matlab, caption={Code for Figure 2}, captionpos=b, basicstyle=\small\ttfamily]
+  %% Plot of angular speed
+  fig=1
+  figure(fig)
+  plot()
+  grid on 
+  xlabel('Time [sec]')
+  ylabel('Angular speed [rad/sec]')
+  \end{lstlisting}
+\end{multicols}
 \end{enumerate}
 
 \section{Analog Filtering}
 \begin{enumerate}[label={\color{blue}\arabic*)}]
   \setcounter{enumi}{2}
+  \item \emph{Sampling period \(T_{e_1}\)}
+  
+  We deduce the Sampling period \(T_{e_1}\) with the subtraction of two consecutive values of \(t\). Also, graphically we observe the run between 2 straight line in the signal if we zoom. \(\mathbf{T_{e_1}=1.10^{-3} sec}\) 
+  \begin{multicols}{2}
+    \begin{center}
+      \includegraphics[scale=0.3]{Figures/q3.jpg}
+      \captionof{figure}{Same signal with zoom}
+      \label{F2}
+    \end{center}
+    \columnbreak
+    
+    \begin{lstlisting}[style=Matlab-editor,language=Matlab, caption={Code for Figure 2}, captionpos=b, basicstyle=\small\ttfamily]
+      %% Sampling period
+      Te1=t(5)-t(4)
+
+      >>Te1 =
+
+      1.0000e-03
+      \end{lstlisting}
+    \end{multicols}
   \item \emph{question subject}
   \item \emph{question subject}
-  \item \emph{question subject}
+  
   \item \emph{question subject}
   \item \emph{question subject}
 \end{enumerate}
