@@ -8,5 +8,3 @@ fig=1
 figure(fig)
 plot(omega,t)
 grid on 
-xlabel("Time [sec]")
-ylabel("Angular speed [rad/sec]")

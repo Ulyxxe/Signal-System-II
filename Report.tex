@@ -28,7 +28,7 @@
 
 
 
-\title{Signal and Sytems II Project \\ [1ex]\large Processing motion signals from a PTZ camera  }
+\title{Signal and Systems II Project \\ [1ex]\large Processing motion signals from a PTZ camera  }
 \author{Ulysse MERAD\and Ruben LEGRANDJACQUES \and \\Fabrice LIN \and Anwar AL-BITAR}
 
 \date{December 12\textsuperscript{th}, 2023} 
@@ -66,13 +66,26 @@
 \newpage
 
 
-\section{Data Visualisation}
+\section{Data Visualization}
 \begin{enumerate}[label={\color{blue}\arabic*)}]
 
 \item \emph{Loading data}
 
+We first use \textit{load('data-proj.mat')} to load variables from data file. Then using \textit{whos} we can list all variables. We have their name and size.
+Here is the result : 
+\begin{center}
+  \includegraphics[scale=1]{images/q1.JPG}
+  \captionof{figure}{Listing variables}
+\end{center}
 
 \item \emph{Plotting the data}
+
+We can not use the signal as it is. Graphically it is impossible to analyze. Either it is too noisy or the window is too large in order to see enough details of the signal.
+\begin{center}
+  \includegraphics[scale=0.5]{Figures/q2.jpg}
+  \captionof{figure}{Angular speed as a function of time}
+\end{center}
+
 \end{enumerate}
 
 \section{Analog Filtering}
