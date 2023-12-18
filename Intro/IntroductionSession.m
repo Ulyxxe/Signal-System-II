@@ -79,17 +79,17 @@ sf=lsim(H1,sb,t);
 %% signal prepared for Simulink
 A = [t',sb'];
 
-fig=fig+1
-figure(fig)
-plot(t,sb,'y')
-hold on
-plot(out.tout,out.A_out,'k')
-hold on
-plot(t,s,'b')
-hold off
-grid
-xlabel('time(secs)')
-ylabel('sb(t) and sf(t)')
+% fig=fig+1
+% figure(fig)
+% % plot(t,sb,'y')
+% % hold on
+% % plot(out.tout,out.A_out,'k')
+% % hold on
+% % plot(t,s,'b')
+% hold off
+% grid
+% xlabel('time(secs)')
+% ylabel('sb(t) and sf(t)')
 %%
 fig=fig+1
 figure(fig)

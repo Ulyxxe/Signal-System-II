@@ -3,7 +3,7 @@
  \geometry{
  a4paper,
  total={210mm,297mm},
- left=25mm,
+ left=20mm,
  right=20mm,
  bottom=20mm,
  top=20mm,
@@ -133,10 +133,70 @@ We can not use the signal as it is. Graphically it is impossible to analyze. Eit
       1.0000e-03
       \end{lstlisting}
     \end{multicols}
-  \item \emph{question subject}
-  \item \emph{question subject}
+  \item \emph{DFT}
   
-  \item \emph{question subject}
+Using code from workshop 5 and Help Project, we obtain this plot.
+\begin{multicols}{2}
+\begin{flushleft}
+\includegraphics[scale=0.6]{Figures/q4.jpg}
+\captionof{figure}{DFT plot of \(\omega(t)\)}
+\label{F3}
+\end{flushleft}
+\columnbreak
+\begin{lstlisting}[style=Matlab-editor,language=Matlab, caption={Code for Figure 3}, captionpos=b, basicstyle=\small\ttfamily]
+Te2= 0.05;%sampling period 
+Fe2=1/Te2;%sampling frequency
+Tf=t(end);%singal duration
+N=Tf/Te2;%number of samples 
+%(N=Duration/sampling period)
+%frequency vector
+f1=-Fe2*(N/2-1)/N:Fe2/N:0;
+f2=Fe2/N:Fe2/N:(N/2)*Fe2/N;
+f=[f2,f1];
+O= zeros(1,N);
+for m=1:N
+  for k=1:N
+    O(m)=O(m)+omega(k)*exp(-j*2*pi*m*k/N);
+  end
+end
+figure(fig+1);
+stem(f,abs(O)/N)
+grid on
+xlim([-2,2])
+xlabel('f [Hz]')
+ylabel('DFT(\omega (t))')
+\end{lstlisting}
+\end{multicols}
+      
+    
+  \item \emph{Maximal Frequency \(F_{max}\) of the signal}
+  
+  \colorbox{yellow}{I don't know yet exactly what to do maybe the maximum frequency \(F_e = 2 Hz\)}.
+  \item \emph{ First order low-pass analog filter of a unit gain}
+  
+  We first create a unit gain low-pass filter with a cutoff frequency \(f_c = 2 Hz\) \textbf{using Matlab.}
+  \begin{multicols}{2}
+\begin{flushleft}
+\includegraphics[scale=0.2]{Figures/q6a.jpg}
+\captionof{figure}{Plot of unfiltered and filtered \(\omega\) signal} 
+\label{F3}
+\end{flushleft}
+\columnbreak
+\begin{lstlisting}[style=Matlab-editor,language=Matlab, caption={Code for Figure 4}, captionpos=b, basicstyle=\small\ttfamily]
+%create the new time vector 
+t1=0:Te2:t(end)-Te2;
+%% filter design
+fc1=2;
+H1=tf(1,[1/(2*pi*fc1)  1]);
+Of=lsim(H1,O,t1);
+%% plot of filtered signal
+figure(1);
+plot(t1,Of,'r')
+grid on
+legend(' \omega(t) unfiltered','\omega_{f}(t) filtered')
+\end{lstlisting}
+\end{multicols}
+We may notice that we observe on the red filtered signal that its amplitude is bigger. We do not know exactly why. Bode diagram show a magnnitude near 0 from low frequencies.
   \item \emph{question subject}
 \end{enumerate}
 
