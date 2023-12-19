@@ -178,7 +178,7 @@ ylabel('DFT(\omega (t))')
   \begin{multicols}{2}
 \begin{flushleft}
 \includegraphics[scale=0.2]{Figures/q6a.jpg}
-\captionof{figure}{Plot of unfiltered and filtered \(\omega\) signal} 
+\captionof{figure}{Plot of unfiltered and filtered \(\omega(t)\) signal} 
 \label{F3}
 \end{flushleft}
 \columnbreak
@@ -197,6 +197,21 @@ legend(' \omega(t) unfiltered','\omega_{f}(t) filtered')
 \end{lstlisting}
 \end{multicols}
 We may notice that we observe on the red filtered signal that its amplitude is bigger. We do not know exactly why. Bode diagram show a magnnitude near 0 from low frequencies.
+
+Now, let use \textbf{Simulink} to filter the signal \(\omega(t)\).
+
+\textbf{Need to transpose the row time vector to a column one. Then create a 2 columns matrix with \(\omega(t)\) and \(t\) in each. This matrix will be imported in Simulink }
+\begin{multicols}{2}
+  \begin{flushleft}
+  \includegraphics[scale=0.6]{Figures/q4.jpg}
+  \captionof{figure}{DFT plot of \(\omega(t)\)}
+  \label{F3}
+  \end{flushleft}
+  \columnbreak
+  \begin{lstlisting}[style=Matlab-editor,language=Matlab, caption={Code for Figure 3}, captionpos=b, basicstyle=\small\ttfamily]
+  
+  \end{lstlisting}
+  \end{multicols}
   \item \emph{question subject}
 \end{enumerate}
 

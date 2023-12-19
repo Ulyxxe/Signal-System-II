@@ -56,7 +56,7 @@ Of=lsim(H1,O,t1);
 figure(1);
 plot(t1,Of,'r')
 grid on
-legend(' \omega(t) unfiltered','\omega_{f}(t) filtered')
+legend(' \omega(t) unfiltered','\omega_{f}(t) filtered','Fontsize',14)
 
 % dc_gain = dcgain(H1);
 % fprintf('DC Gain of the Filter: %.4f\n', dc_gain);
